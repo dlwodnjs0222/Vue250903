@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="#">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <p v-show="isOn">On</p>
+            <p v-show="!isOn">Off</p>
+            <button @click="toggle">ON/OFF 버튼</button>
+        </div>  
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    isOn: false
+                },
+                methods: {
+                    toggle: function() {
+                        this.isOn = !this.isOn;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <label><input type="radio" value="red" v-model="picked">적</label><br>
+            <label><input type="radio" value="green" v-model="picked">녹</label><br>
+            <label><input type="radio" value="blue" v-model="picked">청</label><br>
+            선택한 색 {{picked}}
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    picked: ''
+                },
+                methods: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>

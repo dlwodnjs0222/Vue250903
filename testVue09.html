@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <label><input type="radio" value="images/face1.png" v-model="fileName">face1</label><br>
+            <label><input type="radio" value="images/face2.png" v-model="fileName">face2</label><br>
+
+            <p>{{fileName}} 선택</p>
+            <img v-bind:src="fileName">
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    fileName: ""
+                },
+                methods: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>

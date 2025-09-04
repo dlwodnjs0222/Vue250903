@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <label><input type="checkbox" v-model="myValue">표시</label>
+            <p v-if="myValue">체크박스 ON</p>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    myValue: false
+                },
+                methods: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>
