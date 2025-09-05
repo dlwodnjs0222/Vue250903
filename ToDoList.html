@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="#">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 600px;
+                margin: 30px auto;
+                padding: 20px;
+            }
+            input[type="text"] {
+                width: 70%;
+                padding: 8px;
+                margin-right: 10px;
+            }
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+            li {
+                padding: 8px 0;
+                border-bottom: 1px solid #ddd;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .completed {
+                text-decoration: line-through;
+                color: gray;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="newPlan" v-on:keyup.enter="addPlan">
+            <button v-on:click="addPlan">클릭</button>
+            <br>
+            <ul>
+                <li v-for="(plan, number) in plans" v-bind:key="number" >
+                    <div>
+                        <input type="checkbox" v-model="plan.clear">
+                        <span v-bind:class="{clear: plan.clear}" v-on:dblclick="editPlan(number)">{{number + 1}}. {{plan.text}}</span>
+                    </div>
+                    <div>
+                        <button v-on:click="deletePlan(number)">삭제</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    newPlan: '',
+                    plans: []
+                },
+                methods: {
+                    addPlan: function() {
+                        let text = this.newPlan.trim();
+                        if(text !== ''){
+                            this.plans.push({
+                                text: text,
+                                clear: false
+                            });
+                        }
+                    },
+
+                    deletePlan: function(number){
+                        this.plans.splice(number, 1);
+                    },
+
+                    editPlan: function(number){
+                        const editText = prompt('수정: ' + this.plans[number].text);
+                        if(editText !== null){
+                            this.plans[number].text = editText.trim();
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
